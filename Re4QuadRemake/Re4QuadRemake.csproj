@@ -125,6 +125,7 @@
     <Compile Include="src\Class\Interfaces\IInternalID.cs" />
     <Compile Include="src\Class\KeysCheck.cs" />
     <Compile Include="src\Class\MoveObj.cs" />
+    <Compile Include="src\Class\UndoManager.cs" />
     <Compile Include="src\Class\MultiSelectionObjects.cs" />
     <Compile Include="src\Class\MyProperty\CustomAttribute\AllowInMultiSelectAttribute.cs" />
     <Compile Include="src\Class\MyProperty\CustomAttribute\DecNegativeNumberAttribute.cs" />

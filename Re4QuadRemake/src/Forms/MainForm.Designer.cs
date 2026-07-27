@@ -149,6 +149,7 @@ namespace Re4QuadExtremeEditor
             this.toolStripMenuItemNodeDisplayNameInHex = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorView3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemResetCamera = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemMoveToCamera = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRefresh = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemMisc = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemOptions = new System.Windows.Forms.ToolStripMenuItem();
@@ -289,6 +290,8 @@ namespace Re4QuadExtremeEditor
             this.toolStripMenuItemSaveProject.Name = "toolStripMenuItemSaveProject";
             this.toolStripMenuItemSaveProject.Size = new System.Drawing.Size(220, 22);
             this.toolStripMenuItemSaveProject.Text = "Save Re4 Quad Project";
+            // Ctrl+Shift+S handled manually in MainForm_KeyDown; display-only, not wired via ShortcutKeys to avoid double invocation.
+            this.toolStripMenuItemSaveProject.ShortcutKeyDisplayString = "Ctrl+Shift+S";
             this.toolStripMenuItemSaveProject.Click += new System.EventHandler(this.toolStripMenuItemSaveProject_Click);
             // 
             // toolStripMenuItemNewFile
@@ -482,6 +485,8 @@ namespace Re4QuadExtremeEditor
             this.toolStripMenuItemSaveAll.Size = new System.Drawing.Size(193, 22);
             this.toolStripMenuItemSaveAll.Text = "Save All";
             this.toolStripMenuItemSaveAll.Font = new System.Drawing.Font(this.toolStripMenuItemSaveAll.Font, System.Drawing.FontStyle.Bold);
+            // Ctrl+S handled manually in MainForm_KeyDown; display-only, not wired via ShortcutKeys to avoid double invocation.
+            this.toolStripMenuItemSaveAll.ShortcutKeyDisplayString = "Ctrl+S";
             this.toolStripMenuItemSaveAll.Click += new System.EventHandler(this.toolStripMenuItemSaveAll_Click);
             // 
             // toolStripMenuItemSaveESL
@@ -899,6 +904,7 @@ namespace Re4QuadExtremeEditor
             this.toolStripMenuItemNodeDisplayNameInHex,
             this.toolStripSeparatorView3,
             this.toolStripMenuItemResetCamera,
+            this.toolStripMenuItemMoveToCamera,
             this.toolStripMenuItemRefresh});
             this.toolStripMenuItemView.Name = "toolStripMenuItemView";
             this.toolStripMenuItemView.Size = new System.Drawing.Size(44, 20);
@@ -1229,6 +1235,13 @@ namespace Re4QuadExtremeEditor
             this.toolStripMenuItemResetCamera.Size = new System.Drawing.Size(216, 22);
             this.toolStripMenuItemResetCamera.Text = "Reset Camera";
             this.toolStripMenuItemResetCamera.Click += new System.EventHandler(this.toolStripMenuItemResetCamera_Click);
+            // 
+            // toolStripMenuItemMoveToCamera
+            // 
+            this.toolStripMenuItemMoveToCamera.Name = "toolStripMenuItemMoveToCamera";
+            this.toolStripMenuItemMoveToCamera.Size = new System.Drawing.Size(216, 22);
+            this.toolStripMenuItemMoveToCamera.Text = "Move to the Camera";
+            this.toolStripMenuItemMoveToCamera.Click += new System.EventHandler(this.toolStripMenuItemMoveToCamera_Click);
             // 
             // toolStripMenuItemRefresh
             // 
@@ -1834,7 +1847,7 @@ namespace Re4QuadExtremeEditor
             this.MainMenuStrip = this.menuStripMenu;
             this.MinimumSize = new System.Drawing.Size(900, 530);
             this.Name = "MainForm";
-            this.Text = "RE4 Quad ExtremeEditor [Remake Version] | V.1.0.0 | Remake by Yemeni | YOUTUBE.COM/@JADERLINK";
+            this.Text = "RE4 Quad ExtremeEditor [Remake Version] | V.1.0.1 | Remake by Yemeni | YOUTUBE.COM/@JADERLINK";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
@@ -1987,6 +2000,7 @@ namespace Re4QuadExtremeEditor
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSearch;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparatorView2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemResetCamera;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMoveToCamera;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRefresh;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparatorSubMenuSpecial;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHideOnlyWarpDoor;

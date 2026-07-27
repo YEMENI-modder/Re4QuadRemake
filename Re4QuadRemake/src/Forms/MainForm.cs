@@ -1406,6 +1406,19 @@ namespace Re4QuadExtremeEditor
             cameraMove.ResetCamera();
         }
 
+        /// <summary>
+        /// "Move to the Camera": moves every currently selected object (regardless of file type
+        /// - ESL, ITA, AEV, EAR, SAR, EMI, ESE, DSE, FSE, LIT, EtcModel, Special, EFFBLOB...) so
+        /// it lands at the camera's current position, instead of moving the camera to the object
+        /// (which "Reset Camera"/orbit already does the other way around).
+        /// </summary>
+        private void toolStripMenuItemMoveToCamera_Click(object sender, EventArgs e)
+        {
+            MoveObj.MoveSelectedObjectsToCamera(camera);
+            updateGL();
+            UpdatePropertyGrid();
+        }
+
         #endregion
 
 
@@ -3025,6 +3038,42 @@ namespace Re4QuadExtremeEditor
         {
             // entrada de teclas para açoes especiais
             cameraMove.isControlDown = e.Control;
+
+            // Ctrl+Z -> Undo last position/rotation/scale change
+            if (e.Control && !e.Shift && e.KeyCode == Keys.Z)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                if (UndoManager.Undo())
+                {
+                    if (camera.isOrbitCamera())
+                    {
+                        camera.UpdateCameraOrbitOnChangeValue();
+                        UpdateCameraMatrix();
+                    }
+                    updateGL();
+                    UpdatePropertyGrid();
+                }
+                return;
+            }
+
+            // Ctrl+Shift+S -> Save Project (checked first: Shift also has Control set)
+            if (e.Control && e.Shift && e.KeyCode == Keys.S)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                toolStripMenuItemSaveProject_Click(this, EventArgs.Empty);
+                return;
+            }
+
+            // Ctrl+S -> Save All
+            if (e.Control && !e.Shift && e.KeyCode == Keys.S)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                toolStripMenuItemSaveAll_Click(this, EventArgs.Empty);
+                return;
+            }
 
             #region usado em propery
             // proibe a estrada de caracteres que não vão nos campos de numeros

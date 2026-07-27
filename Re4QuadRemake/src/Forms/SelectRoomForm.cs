@@ -79,7 +79,9 @@ namespace Re4QuadExtremeEditor.src.Forms
             comboBoxModelSource.Items.Add("Load from Smd [UHD]");
             comboBoxModelSource.Items.Add("Load from SMD (data) [UHD]");
             comboBoxModelSource.Items.Add("Load from SMD (0000) [UHD]");
-            // combo index 0 is "None" (enum value 4); Xcar/Smd/SmdData/Smd0000 (enum 0-3) sit at combo index 1-4.
+            comboBoxModelSource.Items.Add("Load from Smd (Stage) (Raz0r) [UHD]");
+            // combo index 0 is "None" (enum value 5); Xcar/Smd/SmdData/Smd0000/SmdStageRaz0r
+            // (enum 0-4) sit at combo index 1-5.
             comboBoxModelSource.SelectedIndex = Globals.LastSelectedModelSource == RoomModelLoadSource.None
                 ? 0
                 : (int)Globals.LastSelectedModelSource + 1;

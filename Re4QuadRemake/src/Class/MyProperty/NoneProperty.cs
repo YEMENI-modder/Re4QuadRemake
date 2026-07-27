@@ -17,7 +17,7 @@ namespace Re4QuadExtremeEditor.src.Class.MyProperty
         [DefaultValueAttribute(null)]
         [ReadOnlyAttribute(true)]
         [BrowsableAttribute(true)]
-        public string Version { get => "Version: 1.0.0"; }
+        public string Version { get => "Version: 1.0.1.0"; }
 
         [CategoryAttribute("Info")]
         [DescriptionAttribute("")]

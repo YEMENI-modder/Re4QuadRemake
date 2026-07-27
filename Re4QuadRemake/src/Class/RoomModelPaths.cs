@@ -122,6 +122,11 @@ namespace Re4QuadExtremeEditor.src.Class
                 expectedFileNames = "0000.SMD";
                 expectedFolder = Path.Combine(gameDirectory ?? "(game folder not set)", "BIO4", "Data", roomFolderName);
             }
+            else if (modelSource == RoomModelLoadSource.SmdStageRaz0r)
+            {
+                expectedFileNames = "0000.SMD";
+                expectedFolder = Path.Combine(gameDirectory ?? "(game folder not set)", "FILES", "STAGE", roomFolderName);
+            }
             else if (modelSource == RoomModelLoadSource.Smd0000)
             {
                 expectedFileNames = "0000.SMD";
@@ -257,6 +262,32 @@ namespace Re4QuadExtremeEditor.src.Class
         }
 
         /// <summary>
+        /// Resolves the .SMD path for "Load from Smd (Stage) (Raz0r)":
+        /// [GAME]\FILES\STAGE\Rxxx\0000.SMD
+        /// This is the Raz0r DLL layout's stage folder. Unlike every other SMD source, there is
+        /// no "BIO4" folder in the path at all — "FILES" sits directly under the game directory.
+        /// </summary>
+        public static string ResolveSmdStageRaz0rPath(string gameDirectory, string roomKey)
+        {
+            string roomNumber = ExtractRoomKeyBody(roomKey);
+            if (string.IsNullOrEmpty(gameDirectory) || !Directory.Exists(gameDirectory) || roomNumber == null)
+            {
+                return null;
+            }
+
+            string filesDir = FindDirectoryCaseInsensitive(gameDirectory, "FILES");
+            if (filesDir == null) { return null; }
+
+            string stageDir = FindDirectoryCaseInsensitive(filesDir, "STAGE");
+            if (stageDir == null) { return null; }
+
+            string roomDir = FindDirectoryCaseInsensitive(stageDir, "R" + roomNumber);
+            if (roomDir == null) { return null; }
+
+            return FindFileCaseInsensitive(roomDir, "0000.SMD");
+        }
+
+        /// <summary>
         /// Resolves the .SMX path that matches a given .SMD load source. SMX is optional: if
         /// no matching file is found, this returns null and the caller (RoomSmdLoader) simply
         /// skips SMX-driven behavior (FaceCulling/AlphaHierarchy/OpacityHierarchy default values),
@@ -276,10 +307,27 @@ namespace Re4QuadExtremeEditor.src.Class
                 return null;
             }
 
+            string roomFolderName = "R" + roomNumber;
+
+            // SmdStageRaz0r lives entirely outside "BIO4" (FILES\STAGE\Rxxx\...), so it's handled
+            // separately before the BIO4 lookup below.
+            if (modelSource == Enums.RoomModelLoadSource.SmdStageRaz0r)
+            {
+                string filesDir = FindDirectoryCaseInsensitive(gameDirectory, "FILES");
+                if (filesDir == null) { return null; }
+
+                string stageDir = FindDirectoryCaseInsensitive(filesDir, "STAGE");
+                if (stageDir == null) { return null; }
+
+                string stageRoomDir = FindDirectoryCaseInsensitive(stageDir, roomFolderName);
+                if (stageRoomDir == null) { return null; }
+
+                return FindFileCaseInsensitive(stageRoomDir, "0000.SMX");
+            }
+
             string bio4 = FindDirectoryCaseInsensitive(gameDirectory, "BIO4");
             if (bio4 == null) { return null; }
 
-            string roomFolderName = "R" + roomNumber;
             string firstDigit = roomNumber[0].ToString();
 
             if (modelSource == Enums.RoomModelLoadSource.SmdData)

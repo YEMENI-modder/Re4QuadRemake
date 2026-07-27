@@ -14,8 +14,13 @@ namespace Re4QuadExtremeEditor.src.Class.Enums
         SmdData = 2,
         Smd0000 = 3,
         /// <summary>
+        /// Load the .SMD directly from FILES\STAGE\Rxxx\0000.SMD (no "BIO4" folder in the path;
+        /// this is the Raz0r DLL layout's stage folder, same file name as SmdData/Smd0000).
+        /// </summary>
+        SmdStageRaz0r = 4,
+        /// <summary>
         /// Load no model at all (no meshes, no textures). Used by the "None" option in Select Room.
         /// </summary>
-        None = 4
+        None = 5
     }
 }

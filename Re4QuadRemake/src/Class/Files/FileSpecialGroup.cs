@@ -1207,25 +1207,28 @@ namespace Re4QuadExtremeEditor.src.Class.Files
                     SetObjPositionZ(ID, value[0].Z);
                 }
 
-                SpecialZoneCategory category = GetSpecialZoneCategory(ID);
-
-                if (category == SpecialZoneCategory.Category01 || category == SpecialZoneCategory.Category02)
+                if (GetSpecialType(ID) != SpecialType.T03_Items)
                 {
-                    SetTriggerZoneCircleRadius(ID, value[5].X);
-                    SetTriggerZoneTrueY(ID, value[5].Y);
-                    SetTriggerZoneMoreHeight(ID, value[5].Z);
+                    SpecialZoneCategory category = GetSpecialZoneCategory(ID);
 
-                    SetTriggerZoneCorner0_X(ID, value[1].X);
-                    SetTriggerZoneCorner0_Z(ID, value[1].Z);
-
-                    if (category == SpecialZoneCategory.Category01)
+                    if (category == SpecialZoneCategory.Category01 || category == SpecialZoneCategory.Category02)
                     {
-                        SetTriggerZoneCorner1_X(ID, value[2].X);
-                        SetTriggerZoneCorner1_Z(ID, value[2].Z);
-                        SetTriggerZoneCorner2_X(ID, value[3].X);
-                        SetTriggerZoneCorner2_Z(ID, value[3].Z);
-                        SetTriggerZoneCorner3_X(ID, value[4].X);
-                        SetTriggerZoneCorner3_Z(ID, value[4].Z);
+                        SetTriggerZoneCircleRadius(ID, value[5].X);
+                        SetTriggerZoneTrueY(ID, value[5].Y);
+                        SetTriggerZoneMoreHeight(ID, value[5].Z);
+
+                        SetTriggerZoneCorner0_X(ID, value[1].X);
+                        SetTriggerZoneCorner0_Z(ID, value[1].Z);
+
+                        if (category == SpecialZoneCategory.Category01)
+                        {
+                            SetTriggerZoneCorner1_X(ID, value[2].X);
+                            SetTriggerZoneCorner1_Z(ID, value[2].Z);
+                            SetTriggerZoneCorner2_X(ID, value[3].X);
+                            SetTriggerZoneCorner2_Z(ID, value[3].Z);
+                            SetTriggerZoneCorner3_X(ID, value[4].X);
+                            SetTriggerZoneCorner3_Z(ID, value[4].Z);
+                        }
                     }
                 }
 

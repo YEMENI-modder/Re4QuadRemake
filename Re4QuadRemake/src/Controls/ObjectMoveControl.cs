@@ -482,6 +482,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         private void moveObjSquare_MouseLeave(object sender, EventArgs e)
         {
             moveObjSquare_mouseDown = false;
+            UndoManager.CommitTransaction();
         }
 
         private void moveObjSquare_MouseDown(object sender, MouseEventArgs e)
@@ -490,6 +491,7 @@ namespace Re4QuadExtremeEditor.src.Controls
             moveObj_lastMouseXY.X = e.X;
             moveObj_lastMouseXY.Y = e.Y;
             SavedPosition = MoveObj.GetSavedPosition();
+            UndoManager.BeginTransaction();
             if (e.Button == MouseButtons.Right)
             {
                 move_Invert = true;
@@ -503,6 +505,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         private void moveObjSquare_MouseUp(object sender, MouseEventArgs e)
         {
             moveObjSquare_mouseDown = false;
+            UndoManager.CommitTransaction();
         }
 
         private void moveObjSquare_MouseMove(object sender, MouseEventArgs e)
@@ -580,6 +583,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         private void moveObjVertical_MouseLeave(object sender, EventArgs e)
         {
             moveObjVertical_mouseDown = false;
+            UndoManager.CommitTransaction();
         }
 
         private void moveObjVertical_MouseDown(object sender, MouseEventArgs e)
@@ -595,6 +599,7 @@ namespace Re4QuadExtremeEditor.src.Controls
             {
                 SavedPosition = MoveObj.GetSavedPosition();
             }
+            UndoManager.BeginTransaction();
            
             if (e.Button == MouseButtons.Right)
             {
@@ -609,6 +614,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         private void moveObjVertical_MouseUp(object sender, MouseEventArgs e)
         {
             moveObjVertical_mouseDown = false;
+            UndoManager.CommitTransaction();
         }
 
         private void moveObjVertical_MouseMove(object sender, MouseEventArgs e)
@@ -660,6 +666,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         private void moveObjHorizontal1_MouseLeave(object sender, EventArgs e)
         {
             moveObjHorisontal1_mouseDown = false;
+            UndoManager.CommitTransaction();
         }
 
         private void moveObjHorizontal1_MouseDown(object sender, MouseEventArgs e)
@@ -679,6 +686,7 @@ namespace Re4QuadExtremeEditor.src.Controls
             {
                 SavedPosition = MoveObj.GetSavedPosition();
             }
+            UndoManager.BeginTransaction();
             if (e.Button == MouseButtons.Right)
             {
                 move_Invert = true;
@@ -692,6 +700,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         private void moveObjHorizontal1_MouseUp(object sender, MouseEventArgs e)
         {
             moveObjHorisontal1_mouseDown = false;
+            UndoManager.CommitTransaction();
         }
 
         private void moveObjHorizontal1_MouseMove(object sender, MouseEventArgs e)
@@ -740,6 +749,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         private void moveObjHorizontal2_MouseLeave(object sender, EventArgs e)
         {
             moveObjHorisontal2_mouseDown = false;
+            UndoManager.CommitTransaction();
         }
 
         private void moveObjHorizontal2_MouseDown(object sender, MouseEventArgs e)
@@ -759,6 +769,7 @@ namespace Re4QuadExtremeEditor.src.Controls
             {
                 SavedPosition = MoveObj.GetSavedPosition();
             }
+            UndoManager.BeginTransaction();
             if (e.Button == MouseButtons.Right)
             {
                 move_Invert = true;
@@ -772,6 +783,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         private void moveObjHorizontal2_MouseUp(object sender, MouseEventArgs e)
         {
             moveObjHorisontal2_mouseDown = false;
+            UndoManager.CommitTransaction();
         }
 
         private void moveObjHorizontal2_MouseMove(object sender, MouseEventArgs e)
@@ -820,6 +832,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         private void moveObjHorizontal3_MouseLeave(object sender, EventArgs e)
         {
             moveObjHorisontal3_mouseDown = false;
+            UndoManager.CommitTransaction();
         }
 
         private void moveObjHorizontal3_MouseDown(object sender, MouseEventArgs e)
@@ -839,6 +852,7 @@ namespace Re4QuadExtremeEditor.src.Controls
             {
                 SavedPosition = MoveObj.GetSavedPosition();
             }
+            UndoManager.BeginTransaction();
             if (e.Button == MouseButtons.Right)
             {
                 move_Invert = true;
@@ -852,6 +866,7 @@ namespace Re4QuadExtremeEditor.src.Controls
         private void moveObjHorizontal3_MouseUp(object sender, MouseEventArgs e)
         {
             moveObjHorisontal3_mouseDown = false;
+            UndoManager.CommitTransaction();
         }
 
         private void moveObjHorizontal3_MouseMove(object sender, MouseEventArgs e)

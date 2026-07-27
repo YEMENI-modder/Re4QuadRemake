@@ -20,7 +20,7 @@ namespace Re4QuadExtremeEditor.src.Class
     public static class UpdateChecker
     {
         private const string RepoOwner = "YEMENI-modder";
-        private const string RepoName = "Re4-quad-Remake";
+        private const string RepoName = "Re4QuadRemake";
         private const string ApiUrl = "https://api.github.com/repos/" + RepoOwner + "/" + RepoName + "/releases/latest";
         private const string AssetFileName = "Re4QuadRemake.zip";
         private const string ZipInnerFolderName = "Re4QuadRemake";

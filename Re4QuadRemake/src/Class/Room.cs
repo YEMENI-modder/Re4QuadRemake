@@ -106,7 +106,8 @@ namespace Re4QuadExtremeEditor.src.Class
             }
             else if (modelSource == Enums.RoomModelLoadSource.Smd
                 || modelSource == Enums.RoomModelLoadSource.SmdData
-                || modelSource == Enums.RoomModelLoadSource.Smd0000)
+                || modelSource == Enums.RoomModelLoadSource.Smd0000
+                || modelSource == Enums.RoomModelLoadSource.SmdStageRaz0r)
             {
                 LoadFromSmd(roomInfo, modelSource);
             }
@@ -132,6 +133,10 @@ namespace Re4QuadExtremeEditor.src.Class
             else if (modelSource == Enums.RoomModelLoadSource.Smd0000)
             {
                 smdPath = RoomModelPaths.ResolveSmd0000Path(Globals.DirectoryUHDRE4, roomInfo.RoomKey);
+            }
+            else if (modelSource == Enums.RoomModelLoadSource.SmdStageRaz0r)
+            {
+                smdPath = RoomModelPaths.ResolveSmdStageRaz0rPath(Globals.DirectoryUHDRE4, roomInfo.RoomKey);
             }
             else
             {
