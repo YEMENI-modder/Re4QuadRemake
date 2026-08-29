@@ -1,6 +1,6 @@
 # Re4QuadRemake
 
-[![Version](https://img.shields.io/badge/Version-1.0.0.0-red?style=flat-square)](https://github.com/YEMENI-modder/Re4QuadRemake/releases/latest)
+[![Version](https://img.shields.io/badge/Version-1.0.1-red?style=flat-square)](https://github.com/YEMENI-modder/Re4QuadRemake/releases/latest)
 ![Status](https://img.shields.io/badge/Status-Active-success?style=flat-square)
 [![Downloads](https://img.shields.io/github/downloads/YEMENI-modder/Re4QuadRemake/total.svg?cacheSeconds=0)](https://github.com/YEMENI-modder/Re4QuadRemake/releases)
 
